@@ -15,16 +15,16 @@ function App() {
             <nav className="navbar">
                 <ul>
                     <li>
-                        <Link to="/">States</Link>
+                        <Link to="/">Flags</Link>
                     </li>
                     <li>
-                        <Link to="/flags">Flags</Link>
+                        <Link to="/flags">States</Link>
                     </li>
                 </ul>
             </nav>
               <Routes>
-                  <Route path="/flags" index element={<Flags />} />
-                  <Route path="/" element={<States/>} />
+                  <Route path="/flags" index element={<States />} />
+                  <Route path="/" element={<Flags/>} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
