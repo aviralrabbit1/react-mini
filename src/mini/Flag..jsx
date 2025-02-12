@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 
-const CountryCard = (country) => {
-    const { abbr, flag, name} = country.country;
+const CountryCard = ({country}) => {
+    const { abbr, flag, name} = country;
     console.log(name);
   return (
     <div key={abbr} style={{
@@ -60,7 +60,7 @@ const Flags = () => {
                 textAlign:"center"
             }}>Loading...</h3>
             : contries.map((country) => 
-                (<CountryCard country={country} />)
+                (<CountryCard key={country.abbr} country={country} />)
             )}
         </div>
     );
