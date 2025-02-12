@@ -44,7 +44,7 @@ const Flags = () => {
             }
         }
         fetchCountries();
-    }, [])
+    })
         
     return (
         <div style={{
