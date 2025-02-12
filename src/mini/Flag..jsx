@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 
 const CountryCard = ({country}) => {
     const { abbr, flag, name} = country;
-    console.log(name);
+    // console.log(name);
   return (
     <div key={abbr} style={{
         display: "flex",
@@ -33,7 +33,7 @@ const Flags = () => {
             const url = "https://xcountries-backend.azurewebsites.net/all";
             try {
                 const response = await fetch(url);
-                // console.log(response);
+                console.log(response);
                 const data = await response.json();
                 // console.log(data);
                 setContries(data);
@@ -44,7 +44,7 @@ const Flags = () => {
             }
         }
         fetchCountries();
-    })
+    }, [])
         
     return (
         <div style={{
@@ -59,8 +59,8 @@ const Flags = () => {
                 alignSelf: "center",
                 textAlign:"center"
             }}>Loading...</h3>
-            : contries.map((country) => 
-                (<CountryCard key={country.abbr} country={country} />)
+            : contries.map((country, idx) => 
+                (<CountryCard key={idx} country={country} />)
             )}
         </div>
     );

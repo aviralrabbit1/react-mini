@@ -5,6 +5,7 @@ import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Flags from './mini/Flag.';
 import States from './mini/States';
+import Error from './mini/Error';
 
 function App() {
 
@@ -22,8 +23,9 @@ function App() {
                 </ul>
             </nav>
               <Routes>
+                  <Route path="/flags" index element={<Flags />} />
                   <Route path="/" element={<States/>} />
-                  <Route path="/flags" element={<Flags />} />
+                  <Route path="/*" element={<Error />} />
               </Routes>
         </div>
     </Router>
