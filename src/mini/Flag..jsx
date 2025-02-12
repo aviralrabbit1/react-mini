@@ -24,9 +24,9 @@ const CountryCard = (country) => {
   )
 }
 
-
 const Flags = () => {
     const [contries, setContries] = useState([]);    
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchCountries = async () => {
@@ -39,6 +39,8 @@ const Flags = () => {
                 setContries(data);
             } catch (error){
                 console.error("Error fetching data:", error);
+            } finally {
+                setLoading(false);
             }
         }
         fetchCountries();
@@ -48,8 +50,16 @@ const Flags = () => {
         <div style={{
             display: "flex",
             flexWrap: "wrap",
+            // justifyContent: "center",
+            textAlign: "center"
         }}>
-            {contries.map((country) => 
+            {loading 
+            ?<h3 style={{
+                display: "flex",
+                alignSelf: "center",
+                textAlign:"center"
+            }}>Loading...</h3>
+            : contries.map((country) => 
                 (<CountryCard country={country} />)
             )}
         </div>
