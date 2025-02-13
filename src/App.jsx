@@ -15,13 +15,13 @@ function App() {
                         <Link to="/">Flags</Link>
                     </li>
                     <li>
-                        <Link to="/States">States</Link>
+                        <Link to="/states">States</Link>
                     </li>
                 </ul>
             </nav>
               <Routes>
                   <Route path="/" index element={<Flags/>} />
-                  <Route path="/flags" element={<States />} />
+                  <Route path="/states" element={<States />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
