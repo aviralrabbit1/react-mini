@@ -1,6 +1,3 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Flags from './mini/Flag.';
@@ -18,13 +15,13 @@ function App() {
                         <Link to="/">Flags</Link>
                     </li>
                     <li>
-                        <Link to="/flags">States</Link>
+                        <Link to="/States">States</Link>
                     </li>
                 </ul>
             </nav>
               <Routes>
-                  <Route path="/flags" index element={<States />} />
-                  <Route path="/" element={<Flags/>} />
+                  <Route path="/" index element={<Flags/>} />
+                  <Route path="/flags" element={<States />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
