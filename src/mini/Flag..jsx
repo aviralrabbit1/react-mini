@@ -14,11 +14,12 @@ const CountryCard = ({country}) => {
         textAlign: "center",
         border: "1px solid black",
         borderRadius: "5px",
-        margin: "10px",
-        width: "170px",
-        height: "170px"
+        margin: "8px",
+        padding: "5px",
+        width: "160px",
+        height: "160px"
     }}>
-        <img src={flag} alt={name} width="100px" height="100px"/>
+        <img src={flag} alt={name} width="100px" height="70px"/>
         <h5>{name}</h5>
     </div>
   )
@@ -50,13 +51,14 @@ const Flags = () => {
         <div style={{
             display: "flex",
             flexWrap: "wrap",
-            // justifyContent: "center",
+            justifyContent: "center",
             textAlign: "center"
         }}>
             {loading 
             ?<h3 style={{
                 display: "flex",
                 alignSelf: "center",
+                justifyContent: "center",                
                 textAlign:"center"
             }}>Loading...</h3>
             : contries.map((country, idx) => 
