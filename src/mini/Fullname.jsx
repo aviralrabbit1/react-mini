@@ -38,7 +38,7 @@ const Fullname = () => {
             <br />
             <button type="submit">Submit</button>
         </form>
-        <p id="fullname" style={{display: "none"}}>Full name: {fullname}</p> {/* Conditionally render the full name changin display style*/}
+        <p id="fullname" style={{display: "none"}}>Full Name: {fullname}</p> {/* Conditionally render the full name changin display style*/}
     </div>
   )
 }
