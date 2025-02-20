@@ -5,7 +5,6 @@ const Fullname = () => {
   const [lastName, setLastName] = useState("");
   const [fullname, setfullname] = useState("");
   const [submitted, setSubmitted] = useState(false); // New state to track submission
-  const fullnameP = document.getElementById("fullname");
 
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent the default form submission
@@ -13,7 +12,6 @@ const Fullname = () => {
         // setFirstName(""); // Clear the first name input
         // setLastName(""); // Clear the last name input
         setSubmitted(true); // Set submitted to true
-        fullnameP.style.display = "block";
     };
   return (
     <div style={{
