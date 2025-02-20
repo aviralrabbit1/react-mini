@@ -20,6 +20,7 @@ const Fullname = () => {
         textAlign: "center",
         height: "90vh"
     }}>
+      <h1>Full Name Display</h1>
         <form action="submit" onSubmit={handleSubmit}>
             <label htmlFor="first_name">First Name:</label>
             <input type="text" name="first_name" id="first_name" required 
@@ -33,7 +34,7 @@ const Fullname = () => {
             <br />
             <button type="submit">Submit</button>
         </form>
-        <h4>Full name: {fullname} </h4>
+        <h4>Full Name: {fullname} </h4>
     </div>
   )
 }
