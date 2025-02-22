@@ -1,11 +1,10 @@
-import React from 'react';
-import { useState, useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const CountryCard = ({country}) => {
-    const { abbr, flag, name} = country;
+    const { png, common } = country;
     // console.log(name);
   return (
-    <div key={abbr} style={{
+    <div className='countryCard' key={common} style={{
         display: "flex",
         flexDirection: "column",
         flexWrap: "wrap",
@@ -19,25 +18,29 @@ const CountryCard = ({country}) => {
         width: "160px",
         height: "160px"
     }}>
-        <img src={flag} alt={name} width="100px" height="70px"/>
-        <h5>{name}</h5>
+        <img src={png} alt={common} width="100px" height="70px"/>
+        <h5>{common}</h5>
     </div>
   )
 }
 
 const Flags = () => {
-    const [contries, setContries] = useState([]);    
+    const [countries, setcountries] = useState([]);    
     const [loading, setLoading] = useState(true);
+    const [filteredCountry, setFilteredCountry] = useState([]);
+    const inputRef = useRef(null); // Create a ref for the input
 
     useEffect(() => {
         const fetchCountries = async () => {
-            const url = "https://xcountries-backend.azurewebsites.net/all";
+            const url = "https://countries-search-data-prod-812920491762.asia-south1.run.app/countries";
+            // { common, png }
             try {
                 const response = await fetch(url);
-                console.log(response);
+                // console.log(response);
                 const data = await response.json();
                 // console.log(data);
-                setContries(data);
+                setcountries(data);
+                setFilteredCountry(data);
             } catch (error){
                 console.error("Error fetching data:", error);
             } finally {
@@ -45,12 +48,33 @@ const Flags = () => {
             }
         }
         fetchCountries();
+        
+        // Focus the input field when the component mounts
+        if (inputRef.current) {
+            inputRef.current.focus();
+        }
     }, [])
+
+    const searchCountry = (text) => {
+        if (text.trim() === "") {
+            // If the input is empty, show all countries
+            setFilteredCountry(countries);
+        } else {
+            const filter = countries.filter(country => 
+                country.common.toLowerCase().includes(text.toLowerCase())
+            );
+            setFilteredCountry(filter);
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const { value } = e.target;
+        searchCountry(value);
+    };
         
     return (
         <div style={{
             display: "flex",
-            flexWrap: "wrap",
             justifyContent: "center",
             textAlign: "center"
         }}>
@@ -61,9 +85,24 @@ const Flags = () => {
                 justifyContent: "center",                
                 textAlign:"center"
             }}>Loading...</h3>
-            : contries.map((country, idx) => 
-                (<CountryCard key={idx} country={country} />)
-            )}
+            : 
+            <div>
+                <input type="text" name="searchCountry" id="searchCountry" 
+                placeholder='Search for countries' ref={inputRef}
+                onChange={handleInputChange}
+                style={{width:"200px", height: "32px", fontSize: "16px", margin: "20px 0"}}/>
+                <div style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    justifyContent: "center",
+                    textAlign: "center"
+                }}>
+                    {filteredCountry.map((country, idx) => 
+                        (<CountryCard key={idx} country={country} />)
+                    )}
+                </div>
+            </div>
+            }
         </div>
     );
 };
