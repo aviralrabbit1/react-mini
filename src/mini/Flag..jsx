@@ -2,9 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 
 const CountryCard = ({country}) => {
     const { png, common } = country;
-    // console.log(name);
+    // console.log(common);
   return (
-    <div className='countryCard' key={common} style={{
+    <div className="countryCard" key={common} style={{
         display: "flex",
         flexDirection: "column",
         flexWrap: "wrap",
@@ -19,7 +19,7 @@ const CountryCard = ({country}) => {
         height: "160px"
     }}>
         <img src={png} alt={common} width="100px" height="70px"/>
-        <h5>{common}</h5>
+        <p style={{ fontWeight: 'bold' }}>{common}</p>
     </div>
   )
 }
@@ -30,7 +30,12 @@ const Flags = () => {
     const [filteredCountry, setFilteredCountry] = useState([]);
     const inputRef = useRef(null); // Create a ref for the input
 
-    useEffect(() => {
+    useEffect(() => {        
+        // Focus the input field when the component mounts
+        if (inputRef.current) {
+            console.log(inputRef);
+            inputRef.current.focus();
+        }
         const fetchCountries = async () => {
             const url = "https://countries-search-data-prod-812920491762.asia-south1.run.app/countries";
             // { common, png }
@@ -48,11 +53,6 @@ const Flags = () => {
             }
         }
         fetchCountries();
-        
-        // Focus the input field when the component mounts
-        if (inputRef.current) {
-            inputRef.current.focus();
-        }
     }, [])
 
     const searchCountry = (text) => {
@@ -90,7 +90,7 @@ const Flags = () => {
                 <input type="text" name="searchCountry" id="searchCountry" 
                 placeholder='Search for countries' ref={inputRef}
                 onChange={handleInputChange}
-                style={{width:"200px", height: "32px", fontSize: "16px", margin: "20px 0"}}/>
+                style={{width:"200px", height: "32px", fontSize: "16px", margin: "20px 0", padding: "5px"}}/>
                 <div style={{
                     display: "flex",
                     flexWrap: "wrap",
