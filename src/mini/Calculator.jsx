@@ -20,6 +20,8 @@ const Calculator = () => {
                 // Evaluate the expression and update the input
                 if(input.toString() === "0/0"){
                     setResult("NaN");
+                } else if (input.trim() === "") {
+                    setResult("Error"); // Handle empty input
                 } else {
                     setResult(eval(input).toString());
                 }
