@@ -6,6 +6,7 @@ import Error from './mini/Error';
 import Fullname from './mini/Fullname';
 import Calculator from './mini/Calculator';
 import Counter from './mini/Counter';
+import ClassCounter from './mini/ClassCounter';
 
 function App() {
 
@@ -29,6 +30,9 @@ function App() {
                     <li>
                         <Link to="/counter">Counter</Link>
                     </li>
+                    <li>
+                        <Link to="/classCounter">ClassCounter</Link>
+                    </li>
                 </ul>
             </nav>
               <Routes>
@@ -37,6 +41,7 @@ function App() {
                   <Route path="/fullname" element={<Fullname />} />
                   <Route path="/calculator" element={<Calculator />} />
                   <Route path="/counter" element={<Counter />} />
+                  <Route path="/classCounter" element={<ClassCounter />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
