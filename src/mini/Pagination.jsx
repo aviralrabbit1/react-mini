@@ -58,10 +58,15 @@ const Pagination = () => {
     <div style={{
         textAlign: "center",
         alignContent: "center",
-        maxWidth: "100vw"
+        maxWidth: "100vw",
     }}>
         <h2>Employee Data Table</h2>
-        <div>
+        <div style={{
+            // overflow: "hidden",
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+        }}>
             <table style={{
                 border: "1px solid black",
                 margin: "20px 0",
@@ -87,13 +92,15 @@ const Pagination = () => {
                     {!loading ? (
                         pageItems.map(({ id, name, email, role }) => (
                             <tr key={id} style={{ 
-                                margin: "5px 0",                     
-                                border: "1px solid black",
-                            }}>
-                                <td>{id}</td>
-                                <td>{name}</td>
-                                <td>{email}</td>
-                                <td>{role}</td>
+                                margin: "5px 0", 
+                                borderBottom: "1px solid #ddd",
+                                transition: "background-color 0.3s" }} 
+                                onMouseEnter={(e) => e.currentTarget.style.backgroundColor = "#f1f1f1"} 
+                                onMouseLeave={(e) => e.currentTarget.style.backgroundColor = "white"}>
+                                <td style={{ padding: "5px", borderBottom: "1px solid #ddd" }}>{id}</td>
+                                <td style={{ padding: "5px", borderBottom: "1px solid #ddd" }}>{name}</td>
+                                <td style={{ padding: "5px", borderBottom : "1px solid #ddd" }}>{email}</td>
+                                <td style={{ padding: "5px", borderBottom: "1px solid #ddd" }}>{role}</td>
                             </tr>
                         ))
                     ) : (
@@ -103,6 +110,7 @@ const Pagination = () => {
                     )}
                 </tbody>
             </table>
+        </div>
             <div style={{
                 display: "flex",
                 alignSelf: "center",
@@ -113,23 +121,26 @@ const Pagination = () => {
                     style={{
                         borderRadius: "4px",
                         backgroundColor: currPage === 1 ? "rgba(0, 128, 0, 0.5)" : "green", // Set opacity if on first page
-                        color: "white"
+                        color: "white",
+                        padding: "10px 20px",
+                        margin: "0 5px",
                     }}>Previous</button>
-                <h4 style={{
+                <span style={{
                         borderRadius: "4px",
                         backgroundColor: "green",
                         color: "white",
                         margin: "0 20px",
-                        padding: "10px 10px"
-                    }}>{currPage} </h4>
+                        padding: "10px 20px"
+                    }}>{currPage} </span>
                 <button id='next' onClick={handleNext} disabled={currPage === totalPages}
                 style={{
                         borderRadius: "4px",
                         backgroundColor: currPage === totalPages ? "rgba(0, 128, 0, 0.5)" : "green", // Set opacity if on first page
-                        color: "white"
+                        color: "white",
+                        padding: "10px 20px",
+                        margin: "0 5px",
                     }}>Next</button>
             </div>
-        </div>
     </div>
   )
 }
