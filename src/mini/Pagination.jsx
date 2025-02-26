@@ -46,11 +46,8 @@ const Pagination = () => {
     const handlePrevious = () => {
         if(currPage>1){
             setCurrPage(currPage-1);
-        } else {
-            document.getElementById("previous").style.backgroundColor = "red";
         }
     }
-
     const handleNext = () => {
         if(currPage<totalPages){
             setCurrPage(currPage+1);
