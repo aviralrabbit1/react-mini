@@ -117,7 +117,8 @@ const Pagination = () => {
                 justifyContent: "center",                
                 textAlign:"center"
             }}>
-                <button id="previous" onClick={handlePrevious} disabled={currPage === 1}
+                <button id="previous" onClick={handlePrevious} 
+                // disabled={currPage === 1}
                     style={{
                         borderRadius: "4px",
                         backgroundColor: currPage === 1 ? "rgba(0, 128, 0, 0.5)" : "green", // Set opacity if on first page
@@ -132,7 +133,8 @@ const Pagination = () => {
                         margin: "0 20px",
                         padding: "10px 20px"
                     }}>{currPage} </span>
-                <button id='next' onClick={handleNext} disabled={currPage === totalPages}
+                <button id='next' onClick={handleNext} 
+                disabled={currPage === totalPages}
                 style={{
                         borderRadius: "4px",
                         backgroundColor: currPage === totalPages ? "rgba(0, 128, 0, 0.5)" : "green", // Set opacity if on first page
