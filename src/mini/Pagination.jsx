@@ -20,6 +20,7 @@ const Pagination = () => {
                 setdata(res);
             } catch (error){
                 console.error("failed to fetch data", error);
+                alert("failed to fetch data");
             } finally {
                 setLoading(false);
             }
