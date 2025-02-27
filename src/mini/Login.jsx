@@ -40,7 +40,7 @@ const Login = () => {
             <h1>Login Page</h1>              
             {(!submitted)? 
             <form action="submit" onSubmit={handleSubmit}>
-                <label htmlFor="username">Userame:</label>
+                <label htmlFor="username">Username:</label>
                 <input type="text" name="username" id="username" required  placeholder='username'
                 value={userDetails.username} // Set value to username
                 onChange={(e) => setUserDetails({ ...userDetails, username: e.target.value })} 
@@ -59,7 +59,7 @@ const Login = () => {
             (<>
                 <div>Invalid username or password</div>
                 <form action="submit" onSubmit={handleSubmit}>
-                    <label htmlFor="username">Userame:</label>
+                    <label htmlFor="username">Username:</label>
                     <input type="text" name="username" id="username" required  placeholder='username'
                     value={userDetails.username} // Set value to username
                     onChange={(e) => setUserDetails({ ...userDetails, username: e.target.value })} 
