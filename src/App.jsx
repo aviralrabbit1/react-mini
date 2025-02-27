@@ -8,6 +8,7 @@ import Calculator from './mini/Calculator';
 import Counter from './mini/Counter';
 import ClassCounter from './mini/ClassCounter';
 import Pagination from './mini/Pagination';
+import Login from './mini/Login';
 
 function App() {
 
@@ -37,6 +38,9 @@ function App() {
                     <li>
                         <Link to="/pagination">Pagination</Link>
                     </li>
+                    <li>
+                        <Link to="/login">Login</Link>
+                    </li>
                 </ul>
             </nav>
               <Routes>
@@ -47,6 +51,7 @@ function App() {
                   <Route path="/counter" element={<Counter />} />
                   <Route path="/classCounter" element={<ClassCounter />} />
                   <Route path="/pagination" element={<Pagination />} />
+                  <Route path="/login" element={<Login />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
