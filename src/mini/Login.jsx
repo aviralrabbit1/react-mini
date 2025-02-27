@@ -54,7 +54,7 @@ const Login = () => {
                 <br />
                 <button type="submit" onClick={()=> setSubmitted(true)} >Submit</button>
             </form>
-            : isValid? <div>Welcome, User!</div>
+            : isValid? <div>Welcome, user!</div>
             :
             (<>
                 <div>Invalid username or password</div>
