@@ -10,6 +10,7 @@ import ClassCounter from './mini/ClassCounter';
 import Pagination from './mini/Pagination';
 import Login from './mini/Login';
 import Stopwatch from './mini/Stopwatch';
+import Weather from './mini/Weather';
 
 function App() {
 
@@ -45,6 +46,9 @@ function App() {
                     <li>
                         <Link to="/stopwatch">Stopwatch</Link>
                     </li>
+                    <li>
+                        <Link to="/weather">Weather</Link>
+                    </li>
                 </ul>
             </nav>
               <Routes>
@@ -57,6 +61,7 @@ function App() {
                   <Route path="/pagination" element={<Pagination />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/stopwatch" element={<Stopwatch />} />
+                  <Route path="/weather" element={<Weather />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
