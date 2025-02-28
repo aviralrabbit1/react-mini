@@ -7,23 +7,26 @@ const customDictionary = {
     fot: "for",
     exampl: "example",
 };
-const SpellChack = () => {
+const SpellCheck = () => {
     const [input, setinput] = useState("");
     const [suggestedText, setSuggestedText] = useState("");
 
     const handleInput = (e) => {
-        setinput(e.target.value)
-        const words = input.split(' ');
-        const correctedWords = words.map((word) => {
-            const correctedWord = customDictionary[word.toLowerCase()];
-            return correctedWord || word;
-        });
-        const correctedText = correctedWords.join(" ");
-        // Set the suggested text (first corrected word)
-        const firstCorrection = correctedWords.find(
-            (word, index) => word !== words[index]
-        );
-        setSuggestedText(firstCorrection);
+        const value = e.target.value;
+        setinput(value);
+        const words = value.split(' ');
+        
+        // Find the first incorrect word and get its correction
+        const firstIncorrectWord = words.find(word => customDictionary[word.toLowerCase()]);
+        
+        // If there's an incorrect word, set the suggestion
+        if (firstIncorrectWord) {
+            const correctedWord = customDictionary[firstIncorrectWord.toLowerCase()];
+            setSuggestedText(correctedWord);
+        } else {
+            // If no incorrect words, clear the suggestion
+            setSuggestedText("");
+        }
     }
 
   return (
@@ -51,4 +54,4 @@ const SpellChack = () => {
   )
 }
 
-export default SpellChack
+export default SpellCheck

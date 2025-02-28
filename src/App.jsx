@@ -11,7 +11,7 @@ import Pagination from './mini/Pagination';
 import Login from './mini/Login';
 import Stopwatch from './mini/Stopwatch';
 import Weather from './mini/Weather';
-import SpellChack from './mini/SpellChack';
+import SpellCheck from './mini/SpellCheck';
 
 function App() {
 
@@ -51,7 +51,7 @@ function App() {
                         <Link to="/weather">Weather</Link>
                     </li>
                     <li>
-                        <Link to="/spellchack">SpellChack</Link>
+                        <Link to="/spellcheck">SpellCheck</Link>
                     </li>
                 </ul>
             </nav>
@@ -66,7 +66,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/stopwatch" element={<Stopwatch />} />
                   <Route path="/weather" element={<Weather />} />
-                  <Route path="/spellchack" element={<SpellChack />} />
+                  <Route path="/spellcheck" element={<SpellCheck />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
