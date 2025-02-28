@@ -51,7 +51,7 @@ function App() {
                         <Link to="/weather">Weather</Link>
                     </li>
                     <li>
-                        <Link to="/spellcheck">SpellCheck</Link>
+                        <Link to="/spellchack">SpellCheck</Link>
                     </li>
                 </ul>
             </nav>
@@ -66,7 +66,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/stopwatch" element={<Stopwatch />} />
                   <Route path="/weather" element={<Weather />} />
-                  <Route path="/spellcheck" element={<SpellCheck />} />
+                  <Route path="/spellchack" element={<SpellCheck />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
