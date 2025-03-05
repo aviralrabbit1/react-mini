@@ -22,10 +22,11 @@ const Login = () => {
                 // Check if the username and password match the expected values
         
         if (userDetails.username === "user" && userDetails.password === "password") {
-            // setWelcomeMessage(`Welcome, ${userDetails.username}!`); // Set the welcome message
+            setWelcomeMessage(`Welcome, ${userDetails.username}!`); // Set the welcome message
             setIsValid(true);
-        } 
-        // setWelcomeMessage("Invalid username or password"); // Set the error message
+        } else {
+            setWelcomeMessage("Invalid username or password"); // Set the error message
+        }
     };
 
     return (
@@ -37,10 +38,10 @@ const Login = () => {
             textAlign: "center",
             height: "90vh"
         }}>
-            <h1>Login Page</h1>              
-            {(!submitted)? 
+            <h1>Login Page</h1>
             <form action="submit" onSubmit={handleSubmit}>
-                <label htmlFor="username">Userame:</label>
+                <div>{submitted && welcomeMessage}</div>
+                <label htmlFor="username">Username:</label>
                 <input type="text" name="username" id="username" required  placeholder='username'
                 value={userDetails.username} // Set value to username
                 onChange={(e) => setUserDetails({ ...userDetails, username: e.target.value })} 
@@ -54,26 +55,6 @@ const Login = () => {
                 <br />
                 <button type="submit" onClick={()=> setSubmitted(true)} >Submit</button>
             </form>
-            : isValid? <div>Welcome, User!</div>
-            :
-            (<>
-                <div>Invalid username or password</div>
-                <form action="submit" onSubmit={handleSubmit}>
-                    <label htmlFor="username">Userame:</label>
-                    <input type="text" name="username" id="username" required  placeholder='username'
-                    value={userDetails.username} // Set value to username
-                    onChange={(e) => setUserDetails({ ...userDetails, username: e.target.value })} 
-                    />
-                    <br />
-                    <label htmlFor="password">Password:</label>
-                    <input type="text" name="password" id="password" required placeholder='password'
-                    value={userDetails.password} // Set value to password
-                    onChange={(e) => setUserDetails({ ...userDetails, password: e.target.value })} 
-                    />
-                    <br />
-                    <button type="submit" onClick={()=> setSubmitted(true)} >Submit</button>
-                </form>
-            </>)}
         </div>
     )
 }

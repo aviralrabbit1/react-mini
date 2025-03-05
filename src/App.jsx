@@ -52,7 +52,7 @@ function App() {
                         <Link to="/weather">Weather</Link>
                     </li>
                     <li>
-                        <Link to="/spellchack">SpellChack</Link>
+                        <Link to="/spellchack">SpellCheck</Link>
                     </li>
                     <li>
                         <Link to="/dictionary">Dictionary</Link>
