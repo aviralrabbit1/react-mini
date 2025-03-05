@@ -12,6 +12,7 @@ import Login from './mini/Login';
 import Stopwatch from './mini/Stopwatch';
 import Weather from './mini/Weather';
 import SpellChack from './mini/SpellChack';
+import Dictionary from './mini/Dictionary';
 
 function App() {
 
@@ -53,6 +54,9 @@ function App() {
                     <li>
                         <Link to="/spellchack">SpellChack</Link>
                     </li>
+                    <li>
+                        <Link to="/dictionary">Dictionary</Link>
+                    </li>
                 </ul>
             </nav>
               <Routes>
@@ -67,6 +71,7 @@ function App() {
                   <Route path="/stopwatch" element={<Stopwatch />} />
                   <Route path="/weather" element={<Weather />} />
                   <Route path="/spellchack" element={<SpellChack />} />
+                  <Route path="/dictionary" element={<Dictionary />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
