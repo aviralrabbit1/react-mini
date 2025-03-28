@@ -14,6 +14,7 @@ import Weather from './mini/Weather';
 import SpellCheck from './mini/SpellCheck';
 import Dictionary from './mini/Dictionary';
 import Table from './mini/Table';
+import Modal from './mini/Modal';
 
 function App() {
 
@@ -61,6 +62,9 @@ function App() {
                     <li>
                         <Link to="table">Table</Link>
                     </li>
+                    <li>
+                        <Link to="modal">Modal</Link>
+                    </li>
                 </ul>
             </nav>
               <Routes>
@@ -77,6 +81,7 @@ function App() {
                   <Route path="/spellchack" element={<SpellCheck />} />
                   <Route path="/dictionary" element={<Dictionary />} />
                   <Route path="/table" element={<Table />} />
+                  <Route path="/modal" element={<Modal />} />
                   <Route path="/*" element={<Error />} />
               </Routes>
         </div>
