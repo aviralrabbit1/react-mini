@@ -27,7 +27,7 @@ import DarkThemeSwitch from './NavbarHelper'
 import Search from './NavbarHelper'
 import SearchIconWrapper from './NavbarHelper'
 import StyledInputBase from './NavbarHelper'
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const options = [
   "MiniProjects",
@@ -48,10 +48,10 @@ const options = [
 ]
 
 export default function Navbar() {
-  let history = useHistory();
+  let navigate = useNavigate();
 
   function redirectTo(text) {
-    history.push("/" + text.toLowerCase());
+    navigate("/" + text.toLowerCase());
   }
   const [open, setOpen] = React.useState(false);
   const anchorRef = React.useRef(null);
@@ -60,6 +60,7 @@ export default function Navbar() {
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
     console.log("Selected option:", options[index]);
+    redirectTo(options[index]);
     setOpen(false);
   };
 

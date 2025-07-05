@@ -43,7 +43,7 @@ function App() {
                         <Link to="/counter">Counter</Link>
                     </li>
                     <li>
-                        <Link to="/classCounter">ClassCounter</Link>
+                        <Link to="/classcounter">ClassCounter</Link>
                     </li>
                     <li>
                         <Link to="/pagination">Pagination</Link>
@@ -78,7 +78,7 @@ function App() {
                   <Route path="/fullname" element={<Fullname />} />
                   <Route path="/calculator" element={<Calculator />} />
                   <Route path="/counter" element={<Counter />} />
-                  <Route path="/classCounter" element={<ClassCounter />} />
+                  <Route path="/classcounter" element={<ClassCounter />} />
                   <Route path="/pagination" element={<Pagination />} />
                   <Route path="/login" element={<Login />} />
                   <Route path="/stopwatch" element={<Stopwatch />} />
