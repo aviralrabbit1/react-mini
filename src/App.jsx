@@ -16,13 +16,15 @@ import Dictionary from './mini/Dictionary';
 import Table from './mini/Table';
 import Modal from './mini/Modal';
 import Navbar from './components/Navbar';
+import Home from './components/Home';
 
 function App() {
 
   return (
     <Router>
         <div className="app">
-            <nav className="navbar">
+        <Navbar />
+            {/* <nav className="navbar">
                 <ul>
                     <li>
                         <Link to="/">Flags</Link>
@@ -68,13 +70,15 @@ function App() {
                     </li>
                     <li>
                         <Link to="modal">Modal</Link>
-                    </li>
-                </ul>
-            </nav>
+                        </li>
+                        </ul>
+                        </nav> */}
+                
               <Routes>
-                  <Route path="/" index element={<Flags/>} />
+                  <Route path="/" index element={<Home/>} />
+                  <Route path="/flags" index element={<Flags/>} />
                   <Route path="/states" element={<States />} />
-                  <Route path="/navbar" element={<Navbar />} />
+                  {/* <Route path="/navbar" element={<Navbar />} /> */}
                   <Route path="/fullname" element={<Fullname />} />
                   <Route path="/calculator" element={<Calculator />} />
                   <Route path="/counter" element={<Counter />} />
@@ -83,7 +87,7 @@ function App() {
                   <Route path="/login" element={<Login />} />
                   <Route path="/stopwatch" element={<Stopwatch />} />
                   <Route path="/weather" element={<Weather />} />
-                  <Route path="/spellchack" element={<SpellCheck />} />
+                  <Route path="/spellcheck" element={<SpellCheck />} />
                   <Route path="/dictionary" element={<Dictionary />} />
                   <Route path="/table" element={<Table />} />
                   <Route path="/modal" element={<Modal />} />

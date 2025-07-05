@@ -59,7 +59,7 @@ export default function Navbar() {
 
   const handleMenuItemClick = (event, index) => {
     setSelectedIndex(index);
-    console.log("Selected option:", options[index]);
+    // console.log("Selected option:", options[index]);
     redirectTo(options[index]);
     setOpen(false);
   };
@@ -196,6 +196,10 @@ export default function Navbar() {
                 // alignSelf: { xs: 'flex-start', sm: 'center' },
                 mr: 2,                
             }}
+            onClick={() => {
+              redirectTo("");
+              setSelectedIndex(0);
+            }}
           >
             Home
           </Typography>
@@ -227,7 +231,7 @@ export default function Navbar() {
             ref={anchorRef}
             aria-label="Button group with a nested menu"
           >
-            <Button >{options[selectedIndex]}</Button>
+            {/* <Button >{options[selectedIndex]}</Button> */}
             <Button
               size="small"
               aria-controls={open ? 'split-button-menu' : undefined}
@@ -236,7 +240,8 @@ export default function Navbar() {
               aria-haspopup="menu"
               onClick={handleToggle}
             >
-              <ArrowDropDownIcon />
+              {options[selectedIndex]}
+              {/* <ArrowDropDownIcon /> */}
             </Button>
           </ButtonGroup>
           <Popper
@@ -261,7 +266,7 @@ export default function Navbar() {
                       {options.map((option, index) => (
                         <MenuItem
                           key={option}
-                          // disabled={index === 2}
+                          disabled={index === 0}
                           selected={index === selectedIndex}
                           onClick={(event) => handleMenuItemClick(event, index)}
                         >
