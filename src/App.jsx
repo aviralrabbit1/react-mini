@@ -15,6 +15,7 @@ import SpellCheck from './mini/SpellCheck';
 import Dictionary from './mini/Dictionary';
 import Table from './mini/Table';
 import Modal from './mini/Modal';
+import Navbar from './components/Navbar';
 
 function App() {
 
@@ -28,6 +29,9 @@ function App() {
                     </li>
                     <li>
                         <Link to="/states">States</Link>
+                    </li>
+                    <li>
+                        <Link to="/navbar">Navbar</Link>
                     </li>
                     <li>
                         <Link to="/fullname">Fullname</Link>
@@ -70,6 +74,7 @@ function App() {
               <Routes>
                   <Route path="/" index element={<Flags/>} />
                   <Route path="/states" element={<States />} />
+                  <Route path="/navbar" element={<Navbar />} />
                   <Route path="/fullname" element={<Fullname />} />
                   <Route path="/calculator" element={<Calculator />} />
                   <Route path="/counter" element={<Counter />} />
