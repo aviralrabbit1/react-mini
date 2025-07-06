@@ -17,6 +17,7 @@ import Table from './mini/Table';
 import Modal from './mini/Modal';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
+import Box from '@mui/material/Box';
 
 function App() {
 
@@ -24,57 +25,8 @@ function App() {
     <Router>
         <div className="app">
         <Navbar />
-            {/* <nav className="navbar">
-                <ul>
-                    <li>
-                        <Link to="/">Flags</Link>
-                    </li>
-                    <li>
-                        <Link to="/states">States</Link>
-                    </li>
-                    <li>
-                        <Link to="/navbar">Navbar</Link>
-                    </li>
-                    <li>
-                        <Link to="/fullname">Fullname</Link>
-                    </li>
-                    <li>
-                        <Link to="/calculator">Calculator</Link>
-                    </li>
-                    <li>
-                        <Link to="/counter">Counter</Link>
-                    </li>
-                    <li>
-                        <Link to="/classcounter">ClassCounter</Link>
-                    </li>
-                    <li>
-                        <Link to="/pagination">Pagination</Link>
-                    </li>
-                    <li>
-                        <Link to="/login">Login</Link>
-                    </li>
-                    <li>
-                        <Link to="/stopwatch">Stopwatch</Link>
-                    </li>
-                    <li>
-                        <Link to="/weather">Weather</Link>
-                    </li>
-                    <li>
-                        <Link to="/spellchack">SpellCheck</Link>
-                    </li>
-                    <li>
-                        <Link to="/dictionary">Dictionary</Link>
-                    </li>
-                    <li>
-                        <Link to="table">Table</Link>
-                    </li>
-                    <li>
-                        <Link to="modal">Modal</Link>
-                        </li>
-                        </ul>
-                        </nav> */}
-                
-              <Routes>
+        <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, padding: 3 }}>
+            <Routes>
                   <Route path="/" index element={<Home/>} />
                   <Route path="/flags" index element={<Flags/>} />
                   <Route path="/states" element={<States />} />
@@ -92,7 +44,8 @@ function App() {
                   <Route path="/table" element={<Table />} />
                   <Route path="/modal" element={<Modal />} />
                   <Route path="/*" element={<Error />} />
-              </Routes>
+            </Routes>
+        </Box>                
         </div>
     </Router>
   )

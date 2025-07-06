@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import Box from '@mui/material/Box';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
 
 const Weather = () => {
     const [city, setCity] = useState("");
@@ -25,24 +28,22 @@ const Weather = () => {
         } catch (error) {
             alert("Failed to fetch weather data");
         } finally {
-            setLoading(true);
+            setLoading(false);
         }
     }
     
-    
-
   return (
-    <div style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        textAlign: "center",
-    }}>
-        <div >
+    <Stack >
+        <Box component="form"
+            sx={{ '& .MuiTextField-root': { m: 1, width: '25ch' } }}
+            noValidate
+            autoComplete="off" 
+        >
+            {/* <TextField id="city" label="Enter city name" type="search"
+            onChange={(e)=> setCity(e.target.value)} /> */}
             <input type="text" name="city" id="city" onChange={(e)=> setCity(e.target.value)} placeholder="Enter city name" spellCheck="false" />
             <button onClick={fetchWeather}>Search</button>
-            </div>
+        </Box>
         {loading && <p>Loading data...</p>}
         {weatherData && (
             <div className='weather-cards' style={{
@@ -52,9 +53,9 @@ const Weather = () => {
                 <Card info="Humidity" value={`${weatherData.humidity}%`} />
                 <Card info="Condition" value={weatherData.condition.text} />
                 <Card info="Wind Speed" value={`${weatherData.wind_kph} kph`} />
-                </div>
+            </div>
         )} 
-    </div>
+    </Stack>
   )
 }
 
