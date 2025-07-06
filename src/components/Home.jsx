@@ -1,11 +1,9 @@
-import React from 'react'
-import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
+import { useNavigate } from "react-router-dom";
 
 const   projects = [
   { title: "Flags", path: "/flags", description: "Helps search flag of any country" },
@@ -25,15 +23,19 @@ const   projects = [
 ]
 
 const Home = () => {
+  let navigate = useNavigate();
   return (
-    <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
+      <Grid container spacing={{ xs: 2, sm: 1, md: 4 }}
+        sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', padding: 'auto' }}
+      >
         {projects.map((project, index) => (
-          <Grid item xs={2} sm={4} md={4} key={index}>
-            <Card sx={{ maxWidth: 345 }}>
-              <CardActionArea>
+          <Grid key={index} size={{ xs: 6, sm: 4, md: 3, lg: 2 }}>
+            <Card 
+            sx={{ display: 'flex' , height: 150, Width: 150, maxWidth: 200 }}
+            >
+              <CardActionArea onClick={() => navigate(project.path)}>
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography gutterBottom variant="h5" component="div" sx={{ textAlign: 'center' }}>
                     {project.title}
                   </Typography>
                   <Typography variant="body2" sx={{ color: 'text.secondary' }}>
@@ -45,7 +47,6 @@ const Home = () => {
           </Grid>
         ))}
       </Grid>
-    </Box>
   )
 }
 
