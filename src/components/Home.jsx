@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import CardActionArea from '@mui/material/CardActionArea';
 import { useNavigate } from "react-router-dom";
 
-const   projects = [
+const projects = [
   { title: "Flags", path: "/flags", description: "Helps search flag of any country" },
   { title: "States", path: "/states", description: "Helps select city of any country" },
   { title: "Fullname", path: "/fullname", description: "Returns combination of first name and last name" },

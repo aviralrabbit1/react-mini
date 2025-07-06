@@ -25,7 +25,7 @@ function App() {
     <Router>
         <div className="app">
         <Navbar />
-        <Box sx={{ flexGrow: 1, padding: 3 }}>
+        <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, padding: 3 }}>
             <Routes>
                   <Route path="/" index element={<Home/>} />
                   <Route path="/flags" index element={<Flags/>} />
